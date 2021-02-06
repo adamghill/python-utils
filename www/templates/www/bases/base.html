@@ -19,6 +19,8 @@
 
     {% block styles %}{% endblock styles %}
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+
     {% if not debug %}
     <script async defer data-domain="python-utils.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
@@ -42,6 +44,8 @@
 </head>
 
 <body>
+    <a class="github-fork-ribbon" href="https://github.com/adamghill/python-utils.com" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+
     {% csrf_token %}
 
     <main>
