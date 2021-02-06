@@ -1,0 +1,32 @@
+{% extends "www/bases/base.html" %}
+{% load compress static unicorn %}
+
+{% block content %}
+
+<section class="container">
+
+    <div class="intro column is-8 is-offset-2 mt-12">
+        <div>
+            <h2 class="title">Python's <code>strftime</code> directives</h2>
+
+            {% unicorn 'strftime' %}
+        </div>
+    </div>
+
+    <div class="column is-8 is-offset-2 mt-6">
+        <div class="level mt-6">
+            <div class="level-item has-text-centered">
+                <a href="https://www.django-unicorn.com">
+                    <img src="{% static 'img/unicorn-mono.svg' %}" height="80" width="80" />
+                </a>
+            </div>
+        </div>
+        <div class="level">
+            <div class="notification is-link">
+                <a href="https://www.django-unicorn.com"><code>Unicorn</code></a> is a reactive component framework that progressively enhances a normal Django view, makes AJAX calls in the background, and dynamically updates the DOM. It seamlessly extends Django past its server-side framework roots without giving up all of its niceties or re-building your website.
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

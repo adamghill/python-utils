@@ -1,0 +1,56 @@
+<div>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"> -->
+
+  <div class="field has-addons mt-4">
+    <div class="control" style="width: 100%;">
+      <input class="input is-large" type="text" unicorn:model="datetime" disabled>
+    </div>
+    <div class="control">
+      <button class="button is-link is-large" type="submit" unicorn:click="set_now">datetime.now()</button>
+    </div>
+  </div>
+
+  <div class="field has-addons mt-4">
+    <div class="control" style="width: 100%;">
+      <input class="input is-large" type="text" unicorn:model.defer="format" placeholder="Format"></input>
+    </div>
+    <div class="control">
+      <button class="button is-link is-large" type="submit" unicorn:click="format_datetime">Refresh</button>
+    </div>
+    <div class="control">
+      <button class="button is-danger is-outlined is-large" type="submit" unicorn:click="clear_format">Clear</button>
+    </div>
+    
+  </div>
+
+  <div class="mt-1">
+    <h2 class="subtitle is-6" style="margin-bottom: .2rem;">
+    Directives
+    </h2>
+    {% for formatter, explanation in formatters %}
+    <a href="#" unicorn:click.prevent="add_format('{{ formatter }}')">
+      <span class="tag is-light" style="margin-bottom: 3px;" title="{{ explanation }}">{{ formatter }}</span>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="level mt-5">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Result</p>
+        <p class="title">{{ result|default:"n/a" }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- <script>
+    var el = document.getElementById('datepicker');
+      var picker = new Pikaday({ field: el, onSelect: function(b) {
+        console.log("el.value", el.value)
+        Unicorn.call("format-string", "format_datetime")
+        // el.value = b;
+      } });
+  </script> -->
+</div>
