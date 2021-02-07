@@ -50,16 +50,19 @@
 
     <main>
         <section class="hero is-info is-small is-bold pt-4 mb-6" style="background-color: #FFDF00; color: black; background-image: none;">
-            <div class="hero-body" style="background-color: #FFDF00; color: black;">
+            <div class="hero-body" style="background-color: #FFDF00; color: black; margin-bottom: 20px;">
                 <div class="container">
-                    <img src="{% static 'img/apple-touch-icon-144x144-precomposed.png' %}" height="80" width="80" style="float: left; height: 80px; top: -10px; position: relative; margin-right: 20px; border-radius: 50%; background-color: #f5f5f5;" />
+                    <img src="{% static 'img/apple-touch-icon-144x144-precomposed.png' %}" height="80" width="80" style="float: left; height: 80px; top: 10px; position: relative; margin-right: 20px; border-radius: 50%; background-color: #363636;" />
                     <div>
-                        <h1 class="title" style="color: black;">
+                        <h1 class="title" style="color: #363636;">
                             <a href="/">python-utils</a>
                         </h1>
-                        <h2 class="subtitle" style="color: black;">
-                            The online playground for Python utilities (powered by <a href="https://www.django-unicorn.com"><code>Unicorn</code></a>)
+                        <h2 class="subtitle is-4" style="color: #363636;">
+                            The online playground for Python utilities
                         </h2>
+                        <h3 class="title is-6" style="color: #363636; font-weight: 400; padding-top: 2px; left: 2px; position: relative;">
+                            Powered by <a href="https://www.django-unicorn.com"><code>Unicorn</code></a>
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -78,7 +81,7 @@
                             </li>
                             <li>
                                 <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
-                                <a href="https://github.com/adamghill/django-unicorn">Site code</a>
+                                <a href="https://github.com/adamghill/python-utils.com">Fork me on GitHub</a>
                             </li>
                         </ul>
                     </div>
