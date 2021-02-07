@@ -28,9 +28,9 @@
     <h2 class="subtitle is-6" style="margin-bottom: .2rem;">
     Directives
     </h2>
-    {% for formatter, explanation in formatters %}
-    <a href="#" unicorn:click.prevent="add_format('{{ formatter }}')">
-      <span class="tag is-light" style="margin-bottom: 3px;" title="{{ explanation }}">{{ formatter }}</span>
+    {% for directive, explanation in directives %}
+    <a href="#" unicorn:click.prevent="add_format('{{ directive }}')">
+      <span class="tag is-light" style="margin-bottom: 3px;" title="{{ explanation }}">{{ directive }}</span>
     </a>
     {% endfor %}
   </div>

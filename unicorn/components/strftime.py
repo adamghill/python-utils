@@ -7,7 +7,7 @@ class StrftimeView(UnicornView):
     datetime = now()
     format = "%c"
     result = ""
-    formatters = [
+    directives = [
         ("%a", "Weekday as locale’s abbreviated name.",),
         ("%A", "Weekday as locale’s full name.",),
         ("%w", "Weekday as a decimal number, where 0 is Sunday and 6 is Saturday.",),
@@ -48,6 +48,18 @@ class StrftimeView(UnicornView):
         ("%x", "Locale’s appropriate date representation.",),
         ("%X", "Locale’s appropriate time representation.",),
         ("%%", "A literal % character.",),
+        (
+            "%G",
+            "ISO 8601 year with century representing the year that contains the greater part of the ISO week (%V). (Python 3.6+)",
+        ),
+        (
+            "%u",
+            "ISO 8601 weekday as a decimal number where 1 is Monday. (Python 3.6+)",
+        ),
+        (
+            "%V",
+            "ISO 8601 week as a decimal number with Monday as the first day of the week. Week 01 is the week containing Jan 4. (Python 3.6+)",
+        ),
     ]
 
     def hydrate(self):
