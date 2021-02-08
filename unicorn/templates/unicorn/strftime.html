@@ -13,10 +13,10 @@
 
   <div class="field has-addons mt-4">
     <div class="control" style="width: 100%;">
-      <input class="input is-large" type="text" unicorn:model.defer="format" placeholder="Format"></input>
+      <input class="input is-large" type="text" unicorn:model="format" placeholder="Directive code"></input>
     </div>
     <div class="control">
-      <button class="button is-link is-large" type="submit" unicorn:click="format_datetime">Refresh</button>
+      <button class="button is-link is-large" type="submit" unicorn:click="format_datetime">Re-format</button>
     </div>
     <div class="control">
       <button class="button is-danger is-outlined is-large" type="submit" unicorn:click="clear_format">Clear</button>
@@ -25,12 +25,30 @@
   </div>
 
   <div class="mt-1">
-    <h2 class="subtitle is-6" style="margin-bottom: .2rem;">
-    Directives
-    </h2>
-    {% for directive, explanation in directives %}
-    <a href="#" unicorn:click.prevent="add_format('{{ directive }}')">
-      <span class="tag is-light" style="margin-bottom: 3px;" title="{{ explanation }}">{{ directive }}</span>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Directives</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <input class="input" type="text" unicorn:model="directive_search" placeholder="Search directive meanings" />
+          </p>
+        </div>
+        <!-- <div class="field is-narrow">
+          <div class="control">
+            <label class="checkbox" style="margin-top: .375rem">
+              <input type="checkbox" name="python36" unicorn:model="exclude_36">
+              Exclude 3.6+
+            </label>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    {% for directive in directives %}
+    <a href="#" unicorn:click.prevent="add_directive('{{ directive.code }}')">
+      <span class="tag is-light has-tooltip-arrow has-tooltip-multiline" data-tooltip="{{ directive.meaning }}" style="margin-bottom: 3px;">{{ directive.code }}</span>
     </a>
     {% endfor %}
   </div>
@@ -43,7 +61,10 @@
       </div>
     </div>
   </div>
-</div>
+
+  <!-- <p>
+    Details about <code>strftime</code> in the <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">documentation</a>.
+  </p> -->
 
   <!-- <script>
     var el = document.getElementById('datepicker');
