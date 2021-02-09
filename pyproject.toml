@@ -24,7 +24,28 @@ flake8 = "^3.8.3"
 isort = "^5.1.1"
 black = "^19.10b0"
 mypy = "^0.782"
+pytest = "^6.2.2"
+pytest-django = "^4.1.0"
+freezegun = "^1.1.0"
+pytest-freezegun = "^0.4.2"
 
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.isort]
+default_section = "THIRDPARTY"
+known_first_party = ["unicorn", "www", "project",]
+known_django = "django"
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+lines_after_imports = 2
+multi_line_output = 3
+include_trailing_comma = true
+skip_glob = "*/migrations/*.py"
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "--quiet --failed-first --reuse-db --nomigrations -p no:warnings"
+testpaths = [
+    "tests"
+]

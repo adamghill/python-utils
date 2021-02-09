@@ -1,13 +1,16 @@
 <div>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"> -->
+  <style>
+    span.result {
+      background-color: #FFDF00;
+    }
+  </style>
 
   <div class="field has-addons mt-4">
     <div class="control" style="width: 100%;">
       <input class="input is-large" style="z-index: -1;" type="text" unicorn:model="datetime" disabled>
     </div>
     <div class="control">
-      <button class="button is-link is-large" style="z-index: -1;" type="submit" unicorn:click="set_now">datetime.now()</button>
+      <button class="button is-link is-large" type="submit" unicorn:click="set_now">now()</button>
     </div>
   </div>
 
@@ -27,12 +30,12 @@
   <div class="mt-1">
     <div class="field is-horizontal">
       <div class="field-label is-normal">
-        <label class="label">Directives</label>
+        <label class="label" for="directives">Directives</label>
       </div>
       <div class="field-body">
         <div class="field">
           <p class="control">
-            <input class="input" type="text" unicorn:model="directive_search" placeholder="Search directive meanings" />
+            <input class="input" id="directives" type="text" unicorn:model="directive_search" placeholder="Search directives" />
           </p>
         </div>
         <!-- <div class="field is-narrow">
@@ -61,17 +64,4 @@
       </div>
     </div>
   </div>
-
-  <!-- <p>
-    Details about <code>strftime</code> in the <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">documentation</a>.
-  </p> -->
-
-  <!-- <script>
-    var el = document.getElementById('datepicker');
-      var picker = new Pikaday({ field: el, onSelect: function(b) {
-        console.log("el.value", el.value)
-        Unicorn.call("format-string", "format_datetime")
-        // el.value = b;
-      } });
-  </script> -->
 </div>

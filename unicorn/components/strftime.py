@@ -97,13 +97,17 @@ ALL_DIRECTIVES = [
     Directive("%%", "A literal % character.",),
     Directive(
         "%G",
-        "ISO 8601 year with century representing the year that contains the greater part of the ISO week (%V).",
+        "ISO 8601 year with century representing the year that contains the greater part of the ISO week (%V). (Python 3.6+)",
         True,
     ),
-    Directive("%u", "ISO 8601 weekday as a decimal number where 1 is Monday.", True,),
+    Directive(
+        "%u",
+        "ISO 8601 weekday as a decimal number where 1 is Monday. (Python 3.6+)",
+        True,
+    ),
     Directive(
         "%V",
-        "ISO 8601 week as a decimal number with Monday as the first day of the week. Week 01 is the week containing Jan 4.",
+        "ISO 8601 week as a decimal number with Monday as the first day of the week. Week 01 is the week containing Jan 4. (Python 3.6+)",
         True,
     ),
 ]
@@ -168,7 +172,7 @@ class StrftimeView(UnicornView):
                     ).meaning
 
                     code_result = self.datetime.strftime(code)
-                    htmlized_code_result = f"<span class='has-tooltip-arrow has-tooltip-multiline' style='background-color: #FFDF00' data-tooltip='{code}: {meaning}'>{code_result}</span>"
+                    htmlized_code_result = f"<span class='has-tooltip-arrow has-tooltip-multiline result' data-tooltip='{code}: {meaning}'><span class='code'></span>{code_result}</span>"
                     self.result += htmlized_code_result
 
                     potential_directive = ""
@@ -177,9 +181,14 @@ class StrftimeView(UnicornView):
                 elif potential_directive and s == "-":
                     potential_directive += s
                 else:
+                    if potential_directive:
+                        self.result += potential_directive
+
                     if s == " ":
                         self.result += "&nbsp;"
                     else:
                         self.result += s
+
+                    potential_directive = ""
         except Exception as e:
             logger.exception(e)
