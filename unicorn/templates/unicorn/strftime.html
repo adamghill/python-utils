@@ -1,6 +1,10 @@
 <div>
   <style>
+    .results {
+      padding-top: .5rem;
+    }
     span.result {
+      padding: .5rem;
       background-color: #FFDF00;
     }
   </style>
@@ -53,7 +57,7 @@
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Result</p>
-        <p class="title">{{ result|default:"n/a" }}</p>
+        <p class="title results">{{ result|default:"n/a" }}</p>
       </div>
     </div>
   </div>

@@ -146,7 +146,11 @@ class StrftimeView(UnicornView):
         self.format_datetime()
 
     def add_directive(self, code):
-        self.format = f"{self.format} {code}"
+        if self.format.endswith(" "):
+            self.format = f"{self.format}{code}"
+        else:
+            self.format = f"{self.format} {code}"
+
         self.format_datetime()
 
     def clear_format(self):
