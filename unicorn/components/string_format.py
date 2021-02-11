@@ -1,6 +1,10 @@
+import logging
+
 from django_unicorn.components import UnicornView
 
-ALL_FORMATS = [
+logger = logging.getLogger(__name__)
+
+STRING_FORMATS = [
     {"format": "{:>10}", "meaning": "Align right"},
     {"format": "{:10}", "meaning": "Align left"},
     {"format": "{:*>10}", "meaning": "Align right padded with a character"},
@@ -11,11 +15,25 @@ ALL_FORMATS = [
 ]
 
 
+INTEGER_FORMATS = [
+    {"format": "{:4d}", "meaning": "Pad integer"},
+    {"format": "{:04d}", "meaning": "Pad integer with a character"},
+    {"format": "{:+d}", "meaning": "Sign number"},
+    {"format": "{:=+5d}", "meaning": "Sign number with padding"},
+]
+
+FLOAT_FORMATS = [
+    {"format": "{:04.2f}", "meaning": "Pad float"},
+]
+
+
 class StringFormatView(UnicornView):
     text = ""
     format = ""
     result = ""
-    formats = ALL_FORMATS
+    string_formats = STRING_FORMATS
+    integer_formats = INTEGER_FORMATS
+    float_formats = FLOAT_FORMATS
 
     def clear_text(self):
         self.text = ""
@@ -36,14 +54,27 @@ class StringFormatView(UnicornView):
         self.format_text()
 
     def format_text(self):
-        if self.format:
-            self.result = self.format.format(self.text)
-        else:
-            self.result = self.text
+        try:
+            number = None
+            try:
+                number = float(self.text)
+            except ValueError:
+                pass
 
-        # self.result = "{:10}".format("test")
+            try:
+                number = int(self.text)
+            except ValueError:
+                pass
 
-        # print("self.result", len(self.result))
+            if number:
+                self.result = self.format.format(number)
+            elif self.format:
+                self.result = self.format.format(self.text)
+            else:
+                self.result = self.text
 
-        self.result = self.result.replace(" ", "<span class='space'></span>")
+            self.result = self.result.replace(" ", "<span class='space'></span>")
+        except Exception as e:
+            self.result = ""
+            logger.exception(e)
 

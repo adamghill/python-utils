@@ -7,10 +7,28 @@
       padding-right: 8px;
       background-color: #6c6c6c;
     }
+    p.result {
+      padding: .5rem;
+      background-color: #FFDF00;
+    }
   </style>
 
   <h3 class="title is-5" style="margin-bottom: .5rem;">Strings</h3>
-  {% for format in formats %}
+  {% for format in string_formats %}
+  <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
+    <span class="tag is-link has-tooltip-arrow" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
+  </a>
+  {% endfor %}
+
+  <h3 class="title is-5" style="margin-bottom: .5rem;">Integers</h3>
+  {% for format in integer_formats %}
+  <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
+    <span class="tag is-link has-tooltip-arrow" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
+  </a>
+  {% endfor %}
+
+  <h3 class="title is-5" style="margin-bottom: .5rem;">Floats</h3>
+  {% for format in float_formats %}
   <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
     <span class="tag is-link has-tooltip-arrow" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
   </a>
@@ -39,7 +57,7 @@
       <div>
         <p class="heading">Result</p>
         {% if result %}
-        <p class="title" style="padding: .5rem; background-color: #FFDF00;">{{ result|default:"n/a" }}</p>
+        <p class="title result">{{ result|default:"n/a" }}</p>
         {% else %}
         <p class="title">n/a</p>
         {% endif %}
