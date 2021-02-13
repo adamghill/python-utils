@@ -1,0 +1,141 @@
+<div>
+    <style>
+      [unicorn\:name=django-date-filter] .results {
+        padding-top: .5rem;
+      }
+      [unicorn\:name=django-date-filter] span.result {
+        padding: .5rem;
+        background-color: #FFDF00;
+        margin-left: 2px;
+        margin-right: 2px;
+      }
+      [unicorn\:name=django-date-filter] span.space {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: .3rem;
+        padding-bottom: .3rem;
+        background-color: rgba(122,122,122,.3);
+      }
+    </style>
+  
+    <!-- List of formats -->
+    <div class="columns">
+      <div class="column">
+        <div>
+          <h3 class="title is-5" style="margin-bottom: .5rem;">Day + Week</h3>
+      
+          {% for format in day_formats %}
+          <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
+            <span class="tag is-link has-tooltip-arrow has-tooltip-multiline" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
+          </a>
+          {% endfor %}
+
+          {% for format in week_formats %}
+          <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
+            <span class="tag is-link has-tooltip-arrow has-tooltip-multiline" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
+          </a>
+          {% endfor %}
+        </div>
+
+        <div>
+          <h3 class="title is-5" style="margin-bottom: .5rem;">Month</h3>
+      
+          {% for format in month_formats %}
+          <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
+            <span class="tag is-link has-tooltip-arrow has-tooltip-multiline" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="column">
+        <div>
+          <h3 class="title is-5" style="margin-bottom: .5rem;">Year</h3>
+      
+          {% for format in year_formats %}
+          <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
+            <span class="tag is-link has-tooltip-arrow has-tooltip-multiline" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      
+        <div>
+          <h3 class="title is-5" style="margin-bottom: .5rem;">Time</h3>
+      
+          {% for format in time_formats %}
+          <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
+            <span class="tag is-link has-tooltip-arrow has-tooltip-multiline" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="column">
+        <div>
+          <h3 class="title is-5" style="margin-bottom: .5rem;">Timezone</h3>
+      
+          {% for format in timezone_formats %}
+          <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
+            <span class="tag is-link has-tooltip-arrow has-tooltip-multiline" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
+          </a>
+          {% endfor %}
+        </div>
+        
+        <div>
+          <h3 class="title is-5" style="margin-bottom: .5rem;">Datetime</h3>
+      
+          {% for format in datetime_formats %}
+          <a href="#" unicorn:click.prevent="add_format('{{ format.format }}')">
+            <span class="tag is-link has-tooltip-arrow has-tooltip-multiline" data-tooltip="{{ format.meaning }}" style="margin-bottom: 3px;">{{ format.format }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  
+    <!-- Format input -->
+    <div class="field has-addons mt-4">
+      <div class="control" style="width: 100%;">
+        <input class="input is-large" type="text" unicorn:model="format" placeholder="Format string"></input>
+      </div>
+      <div class="control">
+        <button class="button is-danger is-outlined is-large" type="submit" unicorn:click="clear_format">Clear</button>
+      </div>
+    </div>
+  
+    <!-- Datetime -->
+    <div class="field has-addons mt-4">
+      <div class="control" style="width: 100%;">
+        <input class="input is-large" style="z-index: -1;" type="text" unicorn:model="datetime" disabled>
+      </div>
+      <div class="control">
+        <button class="button is-link is-large" type="submit" unicorn:click="set_now">datetime.now()</button>
+      </div>
+    </div>
+  
+    <!-- Result -->
+    <div class="level mt-5">
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Code</p>
+          <p class="title">{% verbatim %}{{ <span id="django-date">datetime</span>|date:"<span id="django-date-filter-format"></span>" }}{% endverbatim %}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Result</p>
+          <p class="title results mt-4">{{ result }}</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function updateDateFormat(format) {
+        var el = document.getElementById("django-date-filter-format");
+        el.innerHTML = format;
+      }
+    </script>
+  </div>
+  

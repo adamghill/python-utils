@@ -146,11 +146,7 @@ class StrftimeView(UnicornView):
         self.format_datetime()
 
     def add_directive(self, code):
-        if self.format.endswith(" "):
-            self.format = f"{self.format}{code}"
-        else:
-            self.format = f"{self.format} {code}"
-
+        self.format = f"{self.format}{code}"
         self.format_datetime()
 
     def clear_format(self):
@@ -189,10 +185,13 @@ class StrftimeView(UnicornView):
                         self.result += potential_directive
 
                     if s == " ":
-                        self.result += "&nbsp;"
+                        self.result += "<span class='space'>&nbsp;</span>"
                     else:
                         self.result += s
 
                     potential_directive = ""
+
+            if not self.format:
+                self.result = ""
         except Exception as e:
             logger.exception(e)

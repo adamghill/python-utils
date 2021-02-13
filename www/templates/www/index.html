@@ -5,33 +5,136 @@
 
 <section class="container">
 
-    <div class="column is-8 is-offset-2 pt-6 pb-6">
-        <div>
-            <h2 class="title"><code>strftime</code></h2>
+    <div class="columns">
+        <div class="column is-4">
+            <div class="card is-shady">
+                <div class="card-content">
+                    <div class="content">
+                        <h4>
+                            <a href="#strftime" class="title is-3" style="color: #3273dc;">strftime</a>
+                            <img src="{% static 'img/clock.svg' %}"/>
+                        </h4>
+                        <p>
+                            <code>date</code>, <code>datetime</code>, and <code>time</code> objects all support a <code>strftime(format)</code> method to create a string representing the time specified by the format string.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="card is-shady">
+                <div class="card-content">
+                    <div class="content">
+                        <h4>
+                            <a href="#string-format" class="title is-3" style="color: #3273dc;">string format</a>
+                            <img src="{% static 'img/edit-2.svg' %}" />
+                        </h4>
+                        <p>
+                            <code>string</code>, <code>decimal</code>, and <code>float</code> objects all have a <code>format(format_string)</code> method that can do basic string manipulation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="card is-shady">
+                <div class="card-content">
+                    <div class="content">
+                        <h4>
+                            <a href="#django-date-filter" class="title is-3" style="color: #3273dc;">Django date filter</a>
+                            <img src="{% static 'img/calendar.svg' %}" />
+                        </h4>
+                        <p>
+                            Formats a date according to the given format. Uses a similar format as PHP’s date() function with some differences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns mt-6">
+        <div id="strtime" class="column is-8 is-offset-2 pt-6 pb-6">
+            <div class="level">
+                <div class="level-left">
+                    <h2 class="title level-item">
+                        <a href="#strftime">
+                            <code>strftime</code>
+                        </a>
+                    </h2>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes" class="button is-primary is-outlined" style="margin-right: 5px;">Official documentation</a>
+                        <a href="https://strftime.org/" class="button is-primary is-outlined">strftime.org</a>
+                    </div>
+                </div>
+            </div>
 
             {% unicorn 'strftime' %}
         </div>
     </div>
 
-    <div class="column is-8 is-offset-2 pt-6 pb-6">
-        <div class="pt-6">
-            <h2 class="title"><code>string format</code></h2>
-
+    <div class="columns mt-6">
+        <div id="string-format" class="column is-8 is-offset-2 pt-6 pb-6">
+            <div class="level">
+                <div class="level-left">
+                    <h2 class="title level-item">
+                        <a href="#string-format">
+                            <code>string format</code>
+                        </a>
+                    </h2>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <a href="https://docs.python.org/3/library/string.html#string-formatting" class="button is-primary is-outlined" style="margin-right: 5px;">Official documentation</a>
+                    <a href="https://pyformat.info/" class="button is-primary is-outlined">pyformat.info</a>
+                    </div>
+                </div>
+            </div>
+                
+                
             {% unicorn 'string-format' %}
         </div>
     </div>
 
-    <div class="column is-8 is-offset-2 pt-6">
-        <div class="level pt-6">
-            <div class="level-item has-text-centered">
-                <a href="https://www.django-unicorn.com">
-                    <img src="{% static 'img/unicorn.svg' %}" height="80" width="80" />
-                </a>
+    <div class="columns mt-6">
+        <div id="django-date-filter" class="column is-8 is-offset-2 pt-6 pb-6">
+            <div class="level">
+                <div class="level-left">
+                    <h2 class="title level-item">
+                        <a href="#django-date-filter">
+                            <code>Django date filter</code>
+                        </a>
+                    </h2>
+                </div>
+                <div class="level-right">
+                    <div class="level-item">
+                        <a href="https://docs.djangoproject.com/en/stable/ref/templates/builtins/#date" class="button is-primary is-outlined">Official documentation</a>
+                    </div>
+                </div>
+            </div>
+            
+            {% unicorn 'django-date-filter' %}
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column is-8 is-offset-2 pt-6">
+            <div class="level pt-6">
+                <div class="level-item has-text-centered">
+                    <a href="https://www.django-unicorn.com">
+                        <img src="{% static 'img/unicorn.svg' %}" height="80" width="80" />
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="level">
+    </div>
+
+    <div class="level">
+        <div class="level-item">
             <div class="notification is-link">
-                <p>
+                <p class="">
                     <a href="/">python-utils.com</a> is built with <a href="https://www.django-unicorn.com"><code>Unicorn</code></a>, a reactive component framework for Django.
                 </p>
                 <p class="mt-5 has-text-centered">

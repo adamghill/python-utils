@@ -1,12 +1,23 @@
 <div>
   <style>
-    .results {
+    [unicorn\:name=strftime] .results {
       padding-top: .5rem;
     }
-    span.result {
+    [unicorn\:name=strftime] span.result {
       padding: .5rem;
       background-color: #FFDF00;
+      margin-left: 2px;
+      margin-right: 2px;
     }
+    [unicorn\:name=strftime] span.space {
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: .3rem;
+        padding-bottom: .3rem;
+        background-color: rgba(122,122,122,.3);
+      }
   </style>
 
   <!-- List of directives -->
@@ -54,6 +65,12 @@
 
   <!-- Result -->
   <div class="level mt-5">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Code</p>
+        <p class="title">datetime.strftime("{{ format }}")</p>
+      </div>
+    </div>
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Result</p>
