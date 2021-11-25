@@ -179,3 +179,6 @@ class DjangoDateFilterView(UnicornView):
                 self.result = date(self.datetime)
         except Exception as e:
             logger.exception(e)
+
+    class Meta:
+        safe = ("result",)

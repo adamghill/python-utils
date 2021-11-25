@@ -78,3 +78,5 @@ class StringFormatView(UnicornView):
             self.result = ""
             logger.exception(e)
 
+    class Meta:
+        safe = ("result",)

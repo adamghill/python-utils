@@ -195,3 +195,6 @@ class StrftimeView(UnicornView):
                 self.result = ""
         except Exception as e:
             logger.exception(e)
+
+    class Meta:
+        safe = ("result",)
