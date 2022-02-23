@@ -11,26 +11,41 @@
 
     <!-- Python favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/apple-touch-icon-144x144-precomposed.png' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114-precomposed.png' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="{% static 'img/apple-touch-icon-144x144-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="{% static 'img/apple-touch-icon-114x114-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+        href="{% static 'img/apple-touch-icon-72x72-precomposed.png' %}">
     <link rel="apple-touch-icon-precomposed" href="{% static 'img/apple-touch-icon-precomposed.png' %}">
     <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon-precomposed.png' %}">
 
     {% block styles %}{% endblock styles %}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
 
     {% if not debug %}
-    <script async defer data-domain="python-utils.com" src="https://plausible.io/js/plausible.outbound-links.js"></script>
-    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <script async defer data-domain="python-utils.com" src="https://plausible.io/js/plausible.outbound-links.js">
+    </script>
+    <script>
+        window.plausible = window.plausible || function () {
+            (window.plausible.q = window.plausible.q || []).push(arguments)
+        }
+    </script>
 
     <!-- Panelbear Analytics - We respect your privacy -->
     <script async src="https://cdn.panelbear.com/analytics.js?site=7r5INlfOhVx"></script>
     <script>
-        window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
-        panelbear('config', { site: '7r5INlfOhVx' });
+        window.panelbear = window.panelbear || function () {
+            (window.panelbear.q = window.panelbear.q || []).push(arguments);
+        };
+        panelbear('config', {
+            site: '7r5INlfOhVx'
+        });
     </script>
+
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     {% endif %}
 
     {% unicorn_scripts %}
@@ -45,15 +60,18 @@
 </head>
 
 <body>
-    <a class="github-fork-ribbon" href="https://github.com/adamghill/python-utils.com" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+    <a class="github-fork-ribbon" href="https://github.com/adamghill/python-utils.com" data-ribbon="Fork me on GitHub"
+        title="Fork me on GitHub">Fork me on GitHub</a>
 
     {% csrf_token %}
 
     <main>
-        <section class="hero is-info is-small is-bold pt-4 mb-6" style="background-color: #FFDF00; color: black; background-image: none;">
+        <section class="hero is-info is-small is-bold pt-4 mb-6"
+            style="background-color: #FFDF00; color: black; background-image: none;">
             <div class="hero-body" style="background-color: #FFDF00; color: black; margin-bottom: 20px;">
                 <div class="container">
-                    <img src="{% static 'img/apple-touch-icon-144x144-precomposed.png' %}" height="80" width="80" style="float: left; height: 80px; top: 10px; position: relative; margin-right: 20px; border-radius: 50%; background-color: #363636;" />
+                    <img src="{% static 'img/apple-touch-icon-144x144-precomposed.png' %}" height="80" width="80"
+                        style="float: left; height: 80px; top: 10px; position: relative; margin-right: 20px; border-radius: 50%; background-color: #363636;" />
                     <div>
                         <h1 class="title" style="color: #363636;">
                             <a href="/">python-utils</a>
@@ -61,8 +79,11 @@
                         <h2 class="subtitle is-4" style="color: #363636;">
                             The online playground for Python utilities
                         </h2>
-                        <h3 class="title is-6" style="color: #696969; font-weight: 400; padding-top: 2px; left: 2px; position: relative;">
-                            <em>Powered by</em> <a href="https://www.django-unicorn.com" class="has-tooltip-arrow has-tooltip-bottom" data-tooltip="Unicorn is a reactive component framework for Django"><code>Unicorn</code></a>
+                        <h3 class="title is-6"
+                            style="color: #696969; font-weight: 400; padding-top: 2px; left: 2px; position: relative;">
+                            <em>Powered by</em> <a href="https://www.django-unicorn.com"
+                                class="has-tooltip-arrow has-tooltip-bottom"
+                                data-tooltip="Unicorn is a reactive component framework for Django"><code>Unicorn</code></a>
                         </h3>
                         <!-- <div style="margin-top: .8rem; margin-right: .8rem;">
                             <a class="github-button" href="https://github.com/sponsors/adamghill" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @adamghill on GitHub">Sponsor</a>
@@ -71,6 +92,10 @@
                 </div>
             </div>
         </section>
+
+        <div data-ea-publisher="django-unicorncom" data-ea-type="image" data-ea-style="stickybox" id="python-utils"
+            style="float: right;">
+        </div>
 
         {% block content %}{% endblock content %}
 
@@ -89,7 +114,7 @@
                             </li>
                             <li>
                                 <img src="{% static 'img/github.svg' %}" style="max-height: 1em;" />
-                                <a href="https://github.com/adamghill/python-utils.com">Fork me</a>  on GitHub
+                                <a href="https://github.com/adamghill/python-utils.com">Fork me</a> on GitHub
                             </li>
                             <li>
                                 <img src="{% static 'img/heart.svg' %}" style="max-height: 1em;" />
@@ -101,15 +126,19 @@
                         <ul>
                             <li>
                                 <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
+                                <a href="https://devmarks.io">https://devmarks.io</a>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
+                                <a href="https://unsuckjs.com">https://unsuckjs.com</a>
+                            </li>
+                            <li>
+                                <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
                                 <a href="https://strftime.org/">https://strftime.org/</a>
                             </li>
                             <li>
                                 <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
                                 <a href="https://pyformat.info/">https://pyformat.info/</a>
-                            </li>
-                            <li>
-                                <img src="{% static 'img/link.svg' %}" style="max-height: 1em;" />
-                                <a href="https://unsuckjs.com">https://unsuckjs.com</a>
                             </li>
                         </ul>
                     </div>
