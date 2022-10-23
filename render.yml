@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: python-utils-web
+    env: python
+    repo: https://github.com/adamghill/python-utils.com
+    region: ohio
+    scaling:
+      minInstances: 1
+      maxInstances: 2
+      targetMemoryPercent: 60 # optional if targetCPUPercent is set
+      targetCPUPercent: 60 # optional if targetMemory is set
+    buildCommand: ./render-build.sh
+    startCommand: gunicorn -c gunicorn.conf.py project.wsgi
+    plan: free
+    domains:
+      - python-utils.com
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: python-utils-redis
+          property: connectionString
+      - fromGroup: python-utils
+  - type: redis
+    name: python-utils-redis
+    ipAllowList: []
+    plan: free
+    region: ohio

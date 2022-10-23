@@ -1,6 +1,0 @@
-# https://pypi.org/project/dj-command/
-
-[[commands]]
-name = "r"
-execute = "poetry run ./manage.py runserver 0:8008"
-long_running = true
