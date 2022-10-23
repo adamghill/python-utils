@@ -14,6 +14,7 @@ services:
     plan: free
     domains:
       - python-utils.com
+      - www.python-utils.com
     envVars:
       - key: REDIS_URL
         fromService:
