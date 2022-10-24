@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "www.python-utils.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "www.python-utils.com", "python-utils.com"]
 
 ALLOWED_HOST = os.getenv("ALLOWED_HOST")
 
